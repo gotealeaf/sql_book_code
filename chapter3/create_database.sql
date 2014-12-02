@@ -7,7 +7,7 @@ SHOW databases;
 */
 CREATE DATABASE library;
 /*
-* Use the database library
+* Use the database named library
 */
 USE library;
 /*
