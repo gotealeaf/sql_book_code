@@ -1,4 +1,8 @@
 /*
+* Create the database if it does not exist
+*/
+CREATE DATABASE IF NOT EXISTS library;
+/*
 * Use the database named library
 */
 USE library;

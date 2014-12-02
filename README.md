@@ -1,4 +1,6 @@
-# sql_book_code - source code for SQL book
+# sql_book_code 
+
+Source code for Introduction to SQL by [Tealeaf Academy](http://www.gotealeaf.com/). 
 
 ## How to
 
