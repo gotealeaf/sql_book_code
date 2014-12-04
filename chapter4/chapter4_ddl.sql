@@ -1,6 +1,6 @@
 /**
 * To execute 
-* mysql> source section4_ddl.sql
+* mysql> source chapter4_ddl.sql
 *
 */
 DROP DATABASE IF EXISTS `library`;
@@ -8,10 +8,10 @@ CREATE DATABASE library;
 USE library;
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE users (
-      user_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+      id INT UNSIGNED NOT NULL AUTO_INCREMENT,
       username CHAR(25) NOT NULL,
       enabled BOOLEAN DEFAULT TRUE, 
-      PRIMARY KEY (user_id)
+      PRIMARY KEY (id)
       );
       
       
@@ -25,17 +25,17 @@ CREATE TABLE addresses (
     city varchar(30) NOT NULL,
     state varchar(30) NOT NULL,
     PRIMARY KEY (user_id),
-    CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users (user_id) 
+    CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users (id) 
      );
      
 DROP TABLE IF EXISTS `books`;    
 CREATE TABLE books (
-     book_id INT UNSIGNED AUTO_INCREMENT,
+     id INT UNSIGNED AUTO_INCREMENT,
      title VARCHAR(100) NOT NULL,
      author VARCHAR(100) NOT NULL,
      published_date DATETIME NOT NULL,
      isbn INT UNSIGNED,
-     PRIMARY KEY (book_id),
+     PRIMARY KEY (id),
      UNIQUE (isbn)
      );    
 /*
@@ -48,20 +48,20 @@ CREATE TABLE users_books (
      checkout_date DATETIME,
      return_date DATETIME,
      PRIMARY KEY (user_id, book_id),  
-     FOREIGN KEY (user_id) REFERENCES users(user_id) ON UPDATE CASCADE,  
-     FOREIGN KEY (book_id) REFERENCES books(book_id) ON UPDATE CASCADE
+     FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE CASCADE,  
+     FOREIGN KEY (book_id) REFERENCES books(id) ON UPDATE CASCADE
     );   
 /*
  one to many: Book has many reviews
 */    
 DROP TABLE IF EXISTS `reviews`;             
 CREATE TABLE reviews (
-    review_id INT UNSIGNED AUTO_INCREMENT,
+    id INT UNSIGNED AUTO_INCREMENT,
     user_id INT UNSIGNED  NOT NULL,
     book_id INT UNSIGNED  NOT NULL,
     review_content VARCHAR(255),
     published_date  DATETIME DEFAULT CURRENT_TIMESTAMP, 
-    PRIMARY KEY (review_id),
-    FOREIGN KEY (book_id) REFERENCES books(book_id) ON DELETE CASCADE,
-    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
+    PRIMARY KEY (id),
+    FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
     );          

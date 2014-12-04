@@ -13,7 +13,7 @@
 SELECT username, city, state 
 FROM users 
 INNER JOIN addresses
-ON users.user_id = addresses.user_id;
+ON users.id = addresses.user_id;
 
 /**
 * LEFT JOIN - All users, even those with no address
@@ -30,7 +30,7 @@ ON users.user_id = addresses.user_id;
 SELECT username, city, state 
 FROM users 
 LEFT JOIN addresses
-ON users.user_id = addresses.user_id;
+ON users.id = addresses.user_id;
 
 /**
 * CROSS JOIN - Cartesian product all rows all tables, repetitions
@@ -49,7 +49,7 @@ ON users.user_id = addresses.user_id;
 
 SELECT users.*, addresses.* 
 FROM users 
-JOIN addresses
+JOIN addresses;
 
 /**
 * INNER JOIN - one to many (intersection)
@@ -67,7 +67,7 @@ JOIN addresses
 SELECT users.*, reviews.* 
 FROM users 
 INNER JOIN reviews
-ON users.user_id = reviews.user_id;
+ON users.id = reviews.user_id;
 
 
 /**
@@ -86,7 +86,7 @@ ON users.user_id = reviews.user_id;
 SELECT users.*, reviews.* 
 FROM users 
 LEFT JOIN reviews
-ON users.user_id = reviews.user_id;
+ON users.id = reviews.user_id;
 
 /**
 * LEFT JOIN - All user, even those with no books
@@ -103,8 +103,8 @@ ON users.user_id = reviews.user_id;
 
 SELECT u.username, b.title
 FROM users u
-LEFT JOIN users_books ub ON (ub.user_id = u.user_id)
-LEFT JOIN books b ON (b.book_id = ub.book_id);
+LEFT JOIN users_books ub ON (ub.user_id = u.id)
+LEFT JOIN books b ON (ub.book_id = b.id);
 
 
 /**
@@ -122,9 +122,8 @@ LEFT JOIN books b ON (b.book_id = ub.book_id);
 
 SELECT u.username, b.title
 FROM users u
-RIGHT JOIN users_books ub ON (ub.user_id = u.user_id)
-RIGHT JOIN books b ON (b.book_id = ub.book_id);
-
+RIGHT JOIN users_books ub ON (ub.user_id = u.id)
+RIGHT JOIN books b ON (ub.book_id = b.id);
 
 /**
 *
