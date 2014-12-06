@@ -1,6 +1,6 @@
 # sql_book_code 
 
-Source code for Introduction to SQL by [Tealeaf Academy](http://www.gotealeaf.com/). All SQL commands used in the chapters are provided and should be run in the same sequence while following along with the book.
+Source code for Introduction to SQL by [Tealeaf Academy](http://www.gotealeaf.com/). All SQL commands used in the book chapters are provided and should be run in the same sequence while following along with the book.
 
 ## How to
 
